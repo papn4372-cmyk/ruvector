@@ -19,7 +19,7 @@
 
 ---
 
-## 🌟 Why Ruvector?
+## 🌟 Why rUvector?
 
 In the age of AI, **vector similarity search is the foundation** of modern applications—from RAG systems to recommendation engines. Ruvector brings enterprise-grade vector search performance to your Node.js and browser applications.
 
