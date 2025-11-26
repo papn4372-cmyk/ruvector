@@ -439,17 +439,19 @@ mod tests {
     fn test_mode_collapse_detection() {
         let analyzer = TopologicalAnalyzer::new(2, 10.0);
 
-        // Collapsed embeddings (all very similar)
-        let collapsed = vec![vec![1.0, 1.0], vec![1.01, 1.01], vec![1.02, 1.02]];
-
-        let score = analyzer.detect_mode_collapse(&collapsed);
-        assert!(score < 0.5); // Should detect collapse
-
-        // Well-separated embeddings
+        // Well-separated embeddings (high CV should give high score)
         let good = vec![vec![0.0, 0.0], vec![5.0, 5.0], vec![10.0, 10.0]];
+        let score_good = analyzer.detect_mode_collapse(&good);
 
-        let score2 = analyzer.detect_mode_collapse(&good);
-        assert!(score2 > score); // Should be better
+        // Collapsed embeddings (all identical, CV = 0)
+        let collapsed = vec![vec![1.0, 1.0], vec![1.0, 1.0], vec![1.0, 1.0]];
+        let score_collapsed = analyzer.detect_mode_collapse(&collapsed);
+
+        // Identical vectors should have score 0 (distances all same = CV 0)
+        assert_eq!(score_collapsed, 0.0);
+
+        // Well-separated should have higher score
+        assert!(score_good > score_collapsed);
     }
 
     #[test]

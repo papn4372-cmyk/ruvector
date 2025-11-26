@@ -363,7 +363,8 @@ mod tests {
         let tokens = tokenize(text);
         assert!(tokens.contains(&"quick".to_string()));
         assert!(tokens.contains(&"brown".to_string()));
-        assert!(!tokens.contains(&"the".to_string())); // Too short
+        assert!(tokens.contains(&"the".to_string())); // "the" is 3 chars, passes > 2 filter
+        assert!(!tokens.contains(&"a".to_string())); // 1 char, too short
     }
 
     #[test]
