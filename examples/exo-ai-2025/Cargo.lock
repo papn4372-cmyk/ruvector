@@ -773,7 +773,7 @@ version = "0.1.0"
 dependencies = [
  "criterion",
  "dashmap",
- "exo-core 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "exo-core 0.1.0",
  "exo-temporal 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ordered-float",
  "parking_lot",

@@ -11,12 +11,14 @@
 //! - [`thermodynamics`]: Landauer's Principle tracking for measuring
 //!   computational efficiency relative to fundamental physics limits
 
+pub mod backends;
 pub mod coherence_router;
 pub mod consciousness;
 pub mod plasticity_engine;
 pub mod thermodynamics;
 pub mod witness;
 
+pub use backends::{SubstrateBackend as ComputeSubstrateBackend, NeuromorphicBackend, QuantumStubBackend};
 pub use coherence_router::{ActionContext, CoherenceBackend, CoherenceRouter, GateDecision};
 pub use witness::WitnessDecision as CoherenceDecision;
 pub use plasticity_engine::{PlasticityDelta, PlasticityEngine, PlasticityMode};

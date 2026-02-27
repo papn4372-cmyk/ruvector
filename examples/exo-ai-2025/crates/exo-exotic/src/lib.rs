@@ -27,6 +27,7 @@ pub mod black_holes;
 pub mod collective;
 pub mod dreams;
 pub mod emergence;
+pub mod experiments;
 pub mod free_energy;
 pub mod morphogenesis;
 pub mod multiple_selves;
